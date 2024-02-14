@@ -5,8 +5,13 @@ const imgGuy = document.getElementById("imgGuy");
 const messageContainer = document.getElementById("message-container");
 
 arrowBtn.addEventListener("click", goToNext);
+addEventListener("load", loadPage);
 
-pageCtr = 1;
+pageCtr = 0;
+
+function loadPage(){
+  getPageContent(pageCtr);
+}
 
 function goToNext() {
   pageCtr++;
@@ -16,8 +21,18 @@ function goToNext() {
 
 function getPageContent() {
   switch (pageCtr) {
-    case 1:
-      console.log(pageCtr);
+    case 0:
+      imgGuy.src = "static/gif/frontPage.gif";
+      imgGuy1.style.display = "none";
+      imgGuy.style.cssText = "border-radius: 2rem; width: 19vw";
+      
+      break;
+      case 1:
+        imgGuy1.style.display = "flex";
+        imgGuy.src = "static/img/img1.2.png";
+        imgGuy1.src = "static/img/img1.png";
+      message.textContent =
+        "Hello, Nay Milagros and Papa Dionnel. Since it's almost Valentine's Day, it's a great opportunity for me to express my love and gratitude for everything you have given me throughout my life. Even though it's not much, this is the only thing I can do to show my love to you, my parents.";
       break;
     case 2:
       message.textContent =
